@@ -28,7 +28,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-5">
-                                    <form action="" method="post" enctype="multipart/form-data">
+                                    <form action="./course-sql.php" method="post" enctype="multipart/form-data">
+                                        <!-- coures_name -->
                                         <div class="input-group mb-2">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
@@ -37,6 +38,7 @@
                                             </div>
                                             <input type="text" name="coures_name" class="form-control" value="<?= $row['coures_name']; ?>">
                                         </div>
+                                        <!-- coures_type -->
                                         <div class="input-group mb-2">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
@@ -45,6 +47,7 @@
                                             </div>
                                             <input type="text" name="coures_type" class="form-control" value="<?= $row['coures_type']; ?>">
                                         </div>
+                                        <!-- prices -->
                                         <div class="input-group mb-2">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
@@ -53,24 +56,27 @@
                                             </div>
                                             <input type="text" name="prices" class="form-control" value="<?= $row['prices']; ?>">
                                         </div>
+                                        <!-- detail -->
                                         <div class="input-group mb-2">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
-                                                    <span class="fas fa-user"></span>
+                                                    <span>Detail</span>
                                                 </div>
                                             </div>
                                             <input type="text" name="detail" class="form-control" value="<?= $row['detail']; ?>">
                                         </div>
+                                        <!-- status -->
                                         <div class="input-group mb-2">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span>Status</span>
+                                                </div>
+                                            </div>
                                             <input type="text" name="status" class="form-control" value="<?= $row['status']; ?>">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-user"></span>
-                                                </div>
-                                            </div>
                                         </div>
+                                        <!-- image -->
                                         <div class="input-group mb-2">
-                                            <input type="file" name="image" id="image" required class="form-control" onchange="previewImage(event)">
+                                            <input type="file" name="image" value="<?= $row['image'] ?>" id="image" class="form-control" onchange="previewImage(event)">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-user"></span>
@@ -79,9 +85,8 @@
                                         </div>
 
                                         <div class="input-group mb-2">
-                                            <button type="submit" name="submit" class="btn btn-primary">Add Course</button>
+                                            <button type="submit" name="update" class="btn btn-primary">Add Course</button>
                                         </div>
-
 
                                     </form>
                                 </div>

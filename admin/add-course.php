@@ -62,10 +62,8 @@
                                             </div>
                                         </div>
 
-                                        <input type="text"  hidden name="add-courese">
-
                                         <div class="input-group mb-2">
-                                            <button type="submit" name="submit" class="btn btn-primary">Add Course</button>
+                                            <button type="submit" name="add-courese" class="btn btn-primary">Add Course</button>
                                         </div>
 
 

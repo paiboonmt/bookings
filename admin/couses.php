@@ -52,7 +52,7 @@ session_start();
                                             <td class="text-center"><img src="../images/course/<?= $row['image']; ?>" alt="" width="50"></td>
                                             <td>
                                                 <a href="./edit-course.php?id=<?= $row['couse_id']; ?>" class="btn btn-primary">Edit</a>
-                                                <a href="./delete-course.php?id=<?= $row['couse_id']; ?>" class="btn btn-danger">Delete</a>
+                                                <a href="./course-sql.php?id=<?= $row['couse_id']; ?>" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                 
