@@ -81,7 +81,10 @@
       </form>
 
       <p class="mb-0">
-        <a href="register.php" class="text-center">Register a new membership</a>
+        <a href="register.php" class="text-center">Register a new Admin</a>
+      </p>
+      <p class="mb-0">
+        <a href="customerRegister.php" class="text-center">Register a new membership</a>
       </p>
 
     </div>

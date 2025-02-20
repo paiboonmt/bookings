@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $title = 'Edit Course';
     include '../database/confg.php';
     if ( isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -84,8 +85,10 @@
                                             </div>
                                         </div>
 
+                                        <input type="hidden" name="couse_id" value="<?= $row['couse_id']; ?>">
+
                                         <div class="input-group mb-2">
-                                            <button type="submit" name="update" class="btn btn-primary">Add Course</button>
+                                            <button type="submit" name="update" class="btn btn-success form-control">Save update Course</button>
                                         </div>
 
                                     </form>

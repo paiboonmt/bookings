@@ -1,6 +1,6 @@
 <?php
-session_start();
-
+    session_start();
+    $title = 'Dashboard';
 ?>
 
 <?php include('layout/header.php'); ?>
@@ -12,11 +12,12 @@ session_start();
                 <h1>Dashboard Pages</h1>
             </div>
             <div class="row">
-                <?php
-                    echo '<pre>';
-                    print_r($_SESSION);
-                    echo '</pre>';
-                ?>
+                <div class="col-md-3">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title
+                            ">Total Users</h3>
+                        </div>
             </div>
         </div>
     </div>

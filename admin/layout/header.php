@@ -4,13 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Starter</title>
+    <title><?= $title ?> | Booking Lab</title>
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="../../images/logo.png">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="../public/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -40,14 +46,14 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <img src="../public/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Administrator</a>
                     </div>
-                </div> -->
+                </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -77,28 +83,46 @@
                         </li> -->
 
                         <li class="nav-item">
-                            <a href="index.php" class="nav-link">
+                            <a href="index.php" class="nav-link <?php echo in_array(basename($_SERVER['PHP_SELF']), ['index.php']) ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Dashboard
+                                    หน้าสรุป
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="couses.php" class="nav-link <?php echo in_array(basename($_SERVER['PHP_SELF']), ['couses.php','add-course.php']) ? 'active' : ''; ?>">
-                                <i class="nav-icon fas fa-heart"></i>
+                            <a href="couses.php" class="nav-link <?php echo in_array(basename($_SERVER['PHP_SELF']), ['couses.php','add-course.php','edit-course.php']) ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-book"></i>
                                 <p>
-                                    Coures
+                                    คอร์สเรียน
                                 </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="customers.php" class="nav-link">
+                            <a href="customers.php" class="nav-link <?php echo in_array(basename($_SERVER['PHP_SELF']), ['customers.php']) ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-user-friends"></i>
                                 <p>
-                                    Customers
+                                    ผู้ดูแลระบบ
+                                </p>
+                            </a>
+                        </li>
+<!-- 
+                        <li class="nav-item">
+                            <a href="customers.php" class="nav-link <?php echo in_array(basename($_SERVER['PHP_SELF']), ['customers.php']) ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <p>
+                                    การจอง
+                                </p>
+                            </a>
+                        </li> -->
+
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
+                                <p>
+                                    ออกจากระบบ
                                 </p>
                             </a>
                         </li>
