@@ -30,36 +30,36 @@
                                 <div class="col-5">
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <div class="input-group mb-2">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                   <span>Courese Name</span>
+                                                </div>
+                                            </div>
                                             <input type="text" name="coures_name" class="form-control" value="<?= $row['coures_name']; ?>">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-user"></span>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="input-group mb-2">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span>Courese Type</span>
+                                                </div>
+                                            </div>
                                             <input type="text" name="coures_type" class="form-control" value="<?= $row['coures_type']; ?>">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-user"></span>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="input-group mb-2">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span>Price</span>
+                                                </div>
+                                            </div>
                                             <input type="text" name="prices" class="form-control" value="<?= $row['prices']; ?>">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-user"></span>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="input-group mb-2">
-                                            <input type="text" name="detail" class="form-control" value="<?= $row['detail']; ?>">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-user"></span>
                                                 </div>
                                             </div>
+                                            <input type="text" name="detail" class="form-control" value="<?= $row['detail']; ?>">
                                         </div>
                                         <div class="input-group mb-2">
                                             <input type="text" name="status" class="form-control" value="<?= $row['status']; ?>">
