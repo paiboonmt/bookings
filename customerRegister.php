@@ -39,9 +39,9 @@
       <div class="card-body">
         <p class="login-box-msg">Register a new membership</p>
 
-        <form action="" method="post">
+        <form action="./customerCheckRegister.php" method="post">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" name="name" required placeholder="Full name">
+            <input type="text" class="form-control" name="name" required placeholder="Full name" autofocus>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>

@@ -78,22 +78,31 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="customers.php" class="nav-link <?php echo in_array(basename($_SERVER['PHP_SELF']), ['customers.php']) ? 'active' : ''; ?>">
+                            <a href="users.php" class="nav-link <?php echo in_array(basename($_SERVER['PHP_SELF']), ['users.php']) ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-user-friends"></i>
                                 <p>
                                     ผู้ดูแลระบบ
                                 </p>
                             </a>
                         </li>
-<!-- 
+
                         <li class="nav-item">
                             <a href="customers.php" class="nav-link <?php echo in_array(basename($_SERVER['PHP_SELF']), ['customers.php']) ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-user-friends"></i>
+                                <p>
+                                    ข้อมูลลูกค้า
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="bookings.php" class="nav-link <?php echo in_array(basename($_SERVER['PHP_SELF']), ['bookings.php']) ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-calendar-alt"></i>
                                 <p>
                                     การจอง
                                 </p>
                             </a>
-                        </li> -->
+                        </li>
 
                         <li class="nav-item">
                             <a href="logout.php" class="nav-link">
