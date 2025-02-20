@@ -1,6 +1,7 @@
 <?php
 session_start();
 $title = "Courses";
+include './middleware.php';
 ?>
 
 <?php include('layout/header.php'); ?>

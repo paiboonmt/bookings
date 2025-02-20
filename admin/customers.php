@@ -1,6 +1,7 @@
 <?php
     session_start();
     $title = "Member List";
+    include './middleware.php';     
     include '../database/confg.php';
 ?>
 <?php include('layout/header.php'); ?>

@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    $title = 'Add Course';
+    include './middleware.php';
+?>
+
 <?php include('./layout/header.php'); ?>
 
 <div class="content-wrapper">

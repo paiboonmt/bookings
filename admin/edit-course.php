@@ -1,6 +1,7 @@
 <?php
     session_start();
     $title = 'Edit Course';
+    include './middleware.php';
     include '../database/confg.php';
     if ( isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -75,14 +76,15 @@
                                             </div>
                                             <input type="text" name="status" class="form-control" value="<?= $row['status']; ?>">
                                         </div>
+
                                         <!-- image -->
                                         <div class="input-group mb-2">
-                                            <input type="file" name="image" value="<?= $row['image'] ?>" id="image" class="form-control" onchange="previewImage(event)">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
-                                                    <span class="fas fa-user"></span>
+                                                    <span class="fas fa-file-image"></span>
                                                 </div>
                                             </div>
+                                            <input type="file" name="image" value="<?= $row['image'] ?>" id="image" class="form-control" onchange="previewImage(event)">
                                         </div>
 
                                         <input type="hidden" name="couse_id" value="<?= $row['couse_id']; ?>">

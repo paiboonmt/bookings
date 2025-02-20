@@ -1,6 +1,7 @@
 <?php
-    session_start();
-    $title = 'Dashboard';
+session_start();
+$title = 'Dashboard';
+include './middleware.php';
 ?>
 
 <?php include('layout/header.php'); ?>
@@ -18,11 +19,12 @@
                             <h3 class="card-title
                             ">Total Users</h3>
                         </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <?php include('layout/footer.php'); ?>
 
 <?php $conn = null; ?>

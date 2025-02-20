@@ -1,5 +1,7 @@
 <?php
     session_start();
+    include './middleware.php';
+    $title = 'Edit Customer';
     include '../database/confg.php';
 ?>
 <?php include('layout/header.php'); ?>
