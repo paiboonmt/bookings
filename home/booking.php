@@ -3,7 +3,7 @@
         <h3 style="color: white;">Booking</h3>
     </div>
     <div class="card-body">
-        <form action="./checkBooking.php" method="post">
+        <form action="home/checkBooking.php" method="post">
             <div class="form-group">
                 <label for="name">ชื่อ-สกุล</label>
                 <input type="text" name="name" class="form-control" required>
