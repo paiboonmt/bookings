@@ -65,8 +65,7 @@
                                             <td><?= date('d-m-Y', strtotime($booking['check_in_date'])) ?></td>
                                             <td><?= date('d-m-Y', strtotime($booking['check_out_date'])) ?></td>
                                             <td class="d-block">
-                                                <a href="view-booking.php?id=<?= $booking['id'] ?>" class="btn btn-info">View</a>
-                                                <a href="delete-booking.php?id=<?= $booking['id'] ?>" class="btn btn-danger">Delete</a>
+                                                <a href="view-booking.php?id=<?= $booking['id'] ?>" class="btn btn-info d-block">View</a>
                                             </td>
                                         </tr>
                                         <?php endif; ?>
