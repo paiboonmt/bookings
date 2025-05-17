@@ -1,8 +1,8 @@
 <?php
     session_start();    
 
-    if ( isset($_POST['email']) && 
-        isset($_POST['password']) ) {
+    if ( isset($_POST['email']) && isset($_POST['password']) ) {
+        include './database/confg.php';
 
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -10,12 +10,8 @@
         $password = md5($password);
 
         $SQL = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-        include './database/confg.php'; // Include database configuration file
-        $result = $conn->query($SQL); // Execute SQL query
-
+        $result = $conn->query($SQL);
         $row = $result->fetch(PDO::FETCH_ASSOC);
-
-        echo $result->rowCount();
 
         if ($result->rowCount() == 1) {
             $_SESSION['username'] = $row['username'];
@@ -35,12 +31,7 @@
             $conn = null; // Close connection
         }
 
-
-
-
         $conn = null; // Close connection
-
-
     }
 
 ?>

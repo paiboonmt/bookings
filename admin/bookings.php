@@ -9,11 +9,11 @@
 <div class="content-wrapper">
     <div class="content">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row p-2">
                 <div class="col-12">
-                    <h1>Bookings</h1>
+                   
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header bg-dark">
                             <h3 class="card-title">Bookings</h3>
                         </div>
                         <div class="card-body">
@@ -31,24 +31,49 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                  <?php 
+                                    require_once '../database/confg.php';   
+                                    $sql = "SELECT b.*, c.coures_name 
+                                    FROM booking b 
+                                    JOIN courses c ON b.Couse_id = c.couse_id";
+                                    $stmt = $conn->prepare($sql);
+                                    $stmt->execute();
+                                    $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                    $i = 1;
+                                    foreach ($bookings as $booking) : ?>
                                   
-                                        <!-- include './db.php';
-                                        $sql = "SELECT * FROM bookings";
-                                        $result = $conn->query($sql);
-                                        if ($result->num_rows > 0) {
-                                            while($row = $result->fetch_assoc()) {
-                                                echo "<tr>";
-                                                echo "<td>".$row['id']."</td>";
-                                                echo "<td>".$row['customer_name']."</td>";
-                                                echo "<td>".$row['customer_email']."</td>";
-                                                echo "<td>".$row['customer_phone']."</td>";
-                                                echo "<td>".$row['room_type']."</td>";
-                                                echo "<td>".$row['check_in']."</td>";
-                                                echo "<td>".$row['check_out']."</td>";
-                                                echo "<td><a href='booking.php?id=".$row['id']."'>View</a></td>";
-                                                echo "</tr>";
-                                            }
-                                        } -->
+                                        <?php if ($booking['status_id'] == 2 ) : ?>
+                                          <tr style="background-color:rgb(103, 235, 134);">
+                                            <td><?= $i++ ?></td>
+                                            <td><?= $booking['Customer_name'] ?></td>
+                                            <td><?= $booking['customer_email'] ?></td>
+                                            <td><?= $booking['phone'] ?></td>
+                                            <td><?= $booking['coures_name'] ?></td>
+                                            <td><?= date('d-m-Y', strtotime($booking['check_in_date'])) ?></td>
+                                            <td><?= date('d-m-Y', strtotime($booking['check_out_date'])) ?></td>
+                                            <td>
+                                                <a href="#" class="btn btn-success d-block"> View </a>
+                                            </td>
+                                        </tr>
+                                        <?php else : ?>
+                                          <tr>
+                                            <td><?= $i++ ?></td>
+                                            <td><?= $booking['Customer_name'] ?></td>
+                                            <td><?= $booking['customer_email'] ?></td>
+                                            <td><?= $booking['phone'] ?></td>
+                                            <td><?= $booking['coures_name'] ?></td>
+                                            <td><?= date('d-m-Y', strtotime($booking['check_in_date'])) ?></td>
+                                            <td><?= date('d-m-Y', strtotime($booking['check_out_date'])) ?></td>
+                                            <td class="d-block">
+                                                <a href="view-booking.php?id=<?= $booking['id'] ?>" class="btn btn-info">View</a>
+                                                <a href="delete-booking.php?id=<?= $booking['id'] ?>" class="btn btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                        <?php endif; ?>
+                                    
+                                  
+                                    <?php endforeach; ?>
+                            
                                     
                                 </tbody>
                             </table>

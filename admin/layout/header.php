@@ -96,7 +96,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="bookings.php" class="nav-link <?php echo in_array(basename($_SERVER['PHP_SELF']), ['bookings.php']) ? 'active' : ''; ?>">
+                            <a href="bookings.php" class="nav-link <?php echo in_array(basename($_SERVER['PHP_SELF']), ['bookings.php','view-booking.php']) ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-calendar-alt"></i>
                                 <p>
                                     การจอง

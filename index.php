@@ -1,25 +1,110 @@
+<?php
+
+session_start();
+
+?>
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <title>Booking!</title>
-  </head>
-  <body>
-    <?php include 'home/navbar.php'; ?>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 p-1">
-          <?php include 'home/booking.php'; ?>
-        </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <?php include 'navbar.php'; ?>
+
+  <!-- <include 'carousel.php'; ?> -->
+
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center"> Booking Now</h1>
       </div>
     </div>
+    <div class="row mt-2 mb-5">
+
+      <?php if (isset($_SESSION['error'])) : ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <?= $_SESSION['error'] ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <?php unset($_SESSION['error']);
+      endif; ?>
+
+
+      <?php if (isset($_SESSION['success'])) : ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <?= $_SESSION['success'] ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu6U1z7FEJw5ISqFkW0J5Vl5UZAXFV+3Bt6Vn7aJFkz4abQ" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-  </body>
+      <?php else : ?>
+        <div class="col-8 mx-auto">
+          <div class="card p-2">
+            <div class="card-body">
+              <h5 class="card-title">Booking Form</h5>
+
+              <form action="./booking/booking-sql.php" method="post">
+
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" name="name" required value="paiboon">
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email" required value="paiboon@local.com">
+                </div>
+
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Phone</label>
+                  <input type="number" class="form-control" name="phone" min="10" required value="0123456789">
+                </div>
+
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Date Start</label>
+                  <input type="date" class="form-control" name="date-start" required value="<?= date('Y-m-d') ?>">
+                </div>
+
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Date Expiry</label>
+                  <input type="date" class="form-control" name="date-expiry" required value="<?= date('Y-m-d', strtotime('+1 month')) ?>">
+                </div>
+
+                <div>
+                  <label class="form-label">Courses</label>
+                  <select name="courses" class="form-select mb-3" required>
+                    <?php
+                    include './database/confg.php';
+                    $sql = "SELECT * FROM `courses`";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($courses as $course) : ?>
+                      <option value="<?= $course['couse_id'] ?>"><?= $course['coures_name'] ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+
+
+                <input type="submit" name="booking" value="Booking Now" class="btn btn-primary col-12">
+
+              </form>
+            </div>
+          </div>
+        </div>
+      <?php endif; unset($_SESSION['success']) ?>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+
 </html>

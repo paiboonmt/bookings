@@ -41,10 +41,10 @@ include './middleware.php';
                                     include '../database/confg.php';
                                     $sql = "SELECT * FROM courses";
                                     $result = $conn->query($sql);
-
-                                    foreach ($result as $row) :  ?>
+                                    $i = 1;
+                                    foreach ($result as $row) : ?>
                                         <tr>
-                                            <td><?= $row['couse_id']; ?></td>
+                                            <td class="text-center"><?= $i++ ?></td>
                                             <td><?= $row['coures_name']; ?></td>
                                             <td><?= $row['coures_type']; ?></td>
                                             <td><?= number_format($row['prices'], 2); ?></td>
