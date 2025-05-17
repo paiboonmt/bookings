@@ -1,11 +1,9 @@
 <?php
-    session_start();
-    $title = 'Add Course';
-    include './middleware.php';
+session_start();
+$title = 'Add Course';
+include './middleware.php';
 ?>
-
 <?php include('./layout/header.php'); ?>
-
 <div class="content-wrapper">
     <div class="content">
         <div class="container-fluid">
@@ -88,7 +86,7 @@
         </div>
     </div>
 </div>
-
+<?php include('./layout/footer.php'); ?>
 <script>
     function previewImage(event) {
         var reader = new FileReader();
@@ -100,5 +98,3 @@
         reader.readAsDataURL(event.target.files[0]);
     }
 </script>
-
-<?php include('./layout/footer.php'); ?>
